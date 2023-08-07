@@ -11,6 +11,8 @@ export default function bs_list(haystack: number[], needle: number): boolean {
     
     console.log({needle, midValue, lo, mid, hi})
     
+    if(lo == hi && midValue != needle) return false
+    
    if(midValue == needle) {
     console.log({size: haystack.length, i})
     return true
@@ -19,7 +21,7 @@ export default function bs_list(haystack: number[], needle: number): boolean {
    if (midValue < needle) {
     lo = mid + 1
    } else {
-    hi = mid - 1
+    hi = mid
    }
   } while (lo <= hi)
   
