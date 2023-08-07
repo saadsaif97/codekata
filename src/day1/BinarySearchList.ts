@@ -28,9 +28,9 @@ export default function bs_list(haystack: number[], needle: number): boolean {
 
 const foo = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]
 
-// bs_list(foo, 69)
-// bs_list(foo, 1336)
-// bs_list(foo, 69420)
-// bs_list(foo, 69421)
-// bs_list(foo, 1)
-// bs_list(foo, 0)
+bs_list(foo, 69)
+bs_list(foo, 1336)
+bs_list(foo, 69420)
+bs_list(foo, 69421)
+bs_list(foo, 1)
+bs_list(foo, 0)
