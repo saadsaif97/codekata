@@ -1,27 +1,32 @@
 export default function two_crystal_balls(breaks: boolean[]): number {
   // Determine the optimal jump size based on the length of breakPoints array.
   let optimalJump = Math.floor(Math.sqrt(breaks.length));
-
-  let breakPointFoundAt = -1
-  
+    
   // Iterate through breaks with a step of optimalJump.
-  for (let index = optimalJump - 1; index < breaks.length; index += optimalJump) {
-    console.log('Current Index: ', index, breaks[index]);
+  let i = optimalJump
+  for (i; i < breaks.length; i += optimalJump) {
+    console.log('Current i: ', i, breaks[i]);
 
-    if(breaks[index] == true) {
-      breakPointFoundAt = index
+    if(breaks[i]) {
+      /**
+       * exclude previous value and include next value
+       * 4,8,12 found at 12
+       * we will increase 12 to 13
+       * 13-4 = 9
+       * 9,10,11,12
+       */
+      i++
       break;
     }
   }
   
-  // not found
-  if (breakPointFoundAt == -1) return -1
-  
+  i-=optimalJump
   // Iterate backward from current index to find the exact break point.
-  for (let backIndex = breakPointFoundAt - optimalJump; backIndex < breakPointFoundAt; backIndex++) {
-    if(breaks[backIndex]) {
-      console.log('Backward Index: ', backIndex, breaks[backIndex]);
-      return backIndex;
+  for (let j = 0; j < optimalJump; j++, i++) {
+    console.log({i,j, breaks:breaks[i]})
+    if(breaks[i]) {
+      console.log('Backward Index: ', i, breaks[i]);
+      return i;
     }
   }
   
@@ -31,6 +36,7 @@ export default function two_crystal_balls(breaks: boolean[]): number {
 
 
 let idx = Math.floor(Math.random() * 20);
+idx = 12
 const data = new Array(20).fill(false);
 for (let i = idx; i < 20; ++i) {
   data[i] = true;
