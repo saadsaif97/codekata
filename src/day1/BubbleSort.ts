@@ -4,7 +4,8 @@ export default function bubble_sort(arr: number[]): void {
   do {
     iterations++
     let sortedSomeElement = false
-    for (let i = 0; i < arr.length-1; i++) {
+    // for each iteration we have largest number at the end, so we exclude it from the iteration
+    for (let i = 0; i < arr.length-1-iterations; i++) {
       if(arr[i] > arr[i+1]) {
        let temp = arr[i]
        arr[i] = arr[i+1]
