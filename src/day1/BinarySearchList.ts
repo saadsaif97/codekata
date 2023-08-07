@@ -1,10 +1,12 @@
 export default function bs_list(haystack: number[], needle: number): boolean {
+  let i = 0
   
   let left = 0
   let right = haystack.length-1
   let mid = Math.floor((left+right)/2)
   
   while (left <= right) {
+    i+=1
     mid = Math.floor((left+right)/2)
     
     console.log({left, right, mid})
@@ -21,14 +23,15 @@ export default function bs_list(haystack: number[], needle: number): boolean {
    }
   }
   
+  console.log({size: haystack.length, i})
   return false
 }
 
-bs_list([1], 1)
-bs_list([1,2,4], 4)
-bs_list([1,2,4,5,6,8,10], 10)
-bs_list([1,2,4,5,6,8,10,12,14,15,16,20,25], 25)
-bs_list([1,2,4,5,6,8,10,12,14,15,16,20,25,26,27,28,29,30,31,32,33,34,35,36,37,38, 39,40,41,42,43], 43)
+bs_list([1], 100)
+bs_list([0, 1, 2], 100)
+bs_list([0, 1, 2, 3, 4, 5, 6], 100)
+bs_list([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 100)
+bs_list([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 100)
 
 /**
  * 1-1
