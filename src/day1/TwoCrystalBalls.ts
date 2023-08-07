@@ -1,19 +1,24 @@
 export default function two_crystal_balls(breaks: boolean[]): number {
-  let jump = Math.floor(Math.sqrt(breaks.length))
-  
-  for (let i = jump-1; i < breaks.length; i=i+jump) {
-    console.log('i: ',i, breaks[i])
-    if(breaks[i] == true) {
-      for (let j = i-jump; j < i; j++) {
-        if(breaks[j]) {
-          console.log('j: ',j, breaks[j])
-          return i
+  // Determine the optimal jump size based on the length of breakPoints array.
+  let optimalJump = Math.floor(Math.sqrt(breaks.length));
+
+  // Iterate through breaks with a step of optimalJump.
+  for (let index = optimalJump - 1; index < breaks.length; index += optimalJump) {
+    console.log('Current Index: ', index, breaks[index]);
+
+    if(breaks[index] == true) {
+      // Iterate backward from current index to find the exact break point.
+      for (let backIndex = index - optimalJump; backIndex < index; backIndex++) {
+        if(breaks[backIndex]) {
+          console.log('Backward Index: ', backIndex, breaks[backIndex]);
+          return index;
         }
       }
     }
   }
-  
-  return -1
+
+  // Return -1 if no break point is found.  
+  return -1;
 }
 
 
