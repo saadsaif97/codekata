@@ -64,3 +64,11 @@ console.log(list)
 
 console.log(list.deque()) // 7
 console.log(list.deque()) // 9
+
+
+/**
+ *                            |-----|   |-----|   |-----|   |-----| 
+ *     dequeue   <-------     |  H  |   |     |   |     |   |  T  |        <------- enqueue
+ *                            |-----|   |-----|   |-----|   |-----|
+ *                                 (____)    (____)    (____)    (____)
+ */                           
