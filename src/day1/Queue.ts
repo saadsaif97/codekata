@@ -20,7 +20,7 @@ export default class Queue<T> {
         if (!this.tail) {
             this.tail = this.head = node;
         } else {
-            node.next = this.tail;
+            this.tail.next = node;
             this.tail = node;   
         }
     }
