@@ -28,9 +28,7 @@ export default class Stack<T> {
         const head = this.head
         this.head = head?.next
         
-        if (head) {
-            this.length--   
-        }
+        this.length = Math.max(0, --this.length)
         
         return head?.value
     }
