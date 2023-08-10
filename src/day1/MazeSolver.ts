@@ -13,12 +13,11 @@ const DIR = [
 function walk(
     maze: string[],
     wall: string,
-    start: Point,
+    curr: Point,
     end: Point,
     seen: boolean[][],
     path: Point[],
 ): Boolean {
-    const curr = start;
 
     // out of map
     if (
@@ -48,7 +47,8 @@ function walk(
     
     seen[curr.y][curr.x] = true;
 
-    path.push(curr);
+    path.push(curr); // why we did not add to start || to by pass the false conditions
+    
     // move in all directions recursion
     for (let i = 0; i < DIR.length; i++) {
         const [dx, dy] = DIR[i];
@@ -120,3 +120,16 @@ const mazeResult = [
     { x: 1, y: 4 },
     { x: 1, y: 5 },
 ];
+
+
+function drawPath(data: string[], path: Point[]) {
+  const data2 = data.map((row) => row.split(''));
+  path.forEach((p) => {
+      if (data2[p.y] && data2[p.y][p.x]) {
+          data2[p.y][p.x] = '*';
+      }
+  });
+  return data2.map(d => d.join(''));
+}
+
+console.log(drawPath(maze, result))
